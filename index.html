@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#0f3d2e">
+  <title>Secret Santa Gasquard 🎅</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="snow" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <span class="brand">🎄 Gasquard</span>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main id="app">
+    <!-- ORGANIZER VIEW -->
+    <section id="view-organizer" class="card" hidden>
+      <h1 data-i18n="title"></h1>
+      <p class="lead" data-i18n="orgIntro"></p>
+
+      <ul class="rules">
+        <li><span aria-hidden="true">💶</span> <span data-i18n="ruleBudget"></span></li>
+        <li><span aria-hidden="true">🤫</span> <span data-i18n="ruleSecret"></span></li>
+      </ul>
+
+      <h2 data-i18n="players"></h2>
+      <ul id="player-list" class="players"></ul>
+
+      <div id="draw-empty">
+        <button id="btn-draw" class="btn btn-primary" type="button" data-i18n="drawBtn"></button>
+      </div>
+
+      <div id="draw-done" hidden>
+        <p class="success" data-i18n="drawDone"></p>
+        <p class="hint" data-i18n="drawHint"></p>
+        <p class="drawid"><span data-i18n="drawId"></span> <strong id="org-draw-id"></strong></p>
+        <ul id="link-list" class="links"></ul>
+        <button id="btn-redraw" class="btn btn-ghost" type="button" data-i18n="redrawBtn"></button>
+      </div>
+    </section>
+
+    <!-- REVEAL VIEW -->
+    <section id="view-reveal" class="card" hidden>
+      <h1 id="greeting"></h1>
+      <p class="lead" data-i18n="revealIntro"></p>
+
+      <button id="gift" class="gift" type="button" aria-describedby="gift-hint">
+        <span class="gift-lid" aria-hidden="true"></span>
+        <span class="gift-box" aria-hidden="true"></span>
+        <span class="sr-only" data-i18n="openGift"></span>
+      </button>
+      <p id="gift-hint" class="hint" data-i18n="tapGift"></p>
+
+      <div id="result" class="result" aria-live="polite" hidden>
+        <p data-i18n="youGiftTo"></p>
+        <p id="receiver" class="receiver"></p>
+        <p class="hint" data-i18n="keepSecret"></p>
+      </div>
+
+      <ul class="rules">
+        <li><span aria-hidden="true">💶</span> <span data-i18n="ruleBudget"></span></li>
+        <li><span aria-hidden="true">🤫</span> <span data-i18n="ruleSecret"></span></li>
+      </ul>
+
+      <p class="countdown" id="countdown"></p>
+      <p class="drawid"><span data-i18n="drawId"></span> <strong id="rev-draw-id"></strong></p>
+    </section>
+
+    <!-- ERROR VIEW -->
+    <section id="view-error" class="card" hidden>
+      <h1>🙈</h1>
+      <p class="lead" data-i18n="badLink"></p>
+    </section>
+  </main>
+
+  <footer class="footer" data-i18n="footer"></footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
